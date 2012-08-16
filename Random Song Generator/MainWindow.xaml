@@ -1,0 +1,40 @@
+﻿<Window x:Class="Random_Song_Generator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Random Song Generator" Height="400" Width="700" WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Background="WhiteSmoke" Icon="/Random%20Song%20Generator;component/favicon.ico">
+    <Grid>
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="122,12,0,0" Name="sourceTextBox" VerticalAlignment="Top" Width="422" />
+        <Label Content="Source Audio File:" Height="28" HorizontalAlignment="Left" Margin="12,12,0,0" Name="label1" VerticalAlignment="Top" Width="104" FontSize="11" />
+        <Button Content="Browse" Height="23" HorizontalAlignment="Left" Margin="550,11,0,0" Name="button1" VerticalAlignment="Top" Width="116" Click="browseSourceClicked" ToolTip="MP3 and M4A audio files only." />
+        <Label Content="Destination Folder:" Height="28" HorizontalAlignment="Left" Margin="12,56,0,0" Name="label2" VerticalAlignment="Top" Width="104" FontSize="11" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="122,56,0,0" Name="destTextBox" VerticalAlignment="Top" Width="422" />
+        <Button Content="Browse" Height="23" HorizontalAlignment="Left" Margin="550,56,0,0" Name="button3" VerticalAlignment="Top" Width="116" Click="browseDestClicked" ToolTip="Where to store the clones. If storing onto a device this should point to the device iteself." />
+        <ProgressBar Height="17" HorizontalAlignment="Left" Margin="122,257,0,0" Name="progressBar" VerticalAlignment="Top" Width="422" />
+        <Label Content="Progress:" Height="36" HorizontalAlignment="Center" Margin="12,247,562,78" Name="label3" VerticalAlignment="Center" Width="104" VerticalContentAlignment="Center" />
+        <Button Content="Start" Height="55" HorizontalAlignment="Left" Margin="550,169,0,0" Name="startButton" VerticalAlignment="Top" Width="116" Click="startClicked" />
+        <Label Content="Iterations:" Height="28" HorizontalAlignment="Left" Margin="12,98,0,0" Name="label4" VerticalAlignment="Top" Width="104" FontSize="11" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="122,98,0,0" Name="iterationsTextBox" VerticalAlignment="Top" Width="198" MouseDown="iterationClicked" MouseEnter="iterationClicked" TextChanged="iterationTextChanged" ToolTip="Number of clones to make." />
+        <Label Content="0" Height="28" HorizontalAlignment="Left" Margin="272,280,0,0" Name="currentSongLabel" VerticalAlignment="Top" />
+        <Label Content="/" Height="28" HorizontalAlignment="Left" Margin="294,280,0,0" Name="label6" VerticalAlignment="Top" />
+        <Label Content="Infinity" Height="28" HorizontalAlignment="Left" Margin="315,280,0,0" Name="iterationsLabel" VerticalAlignment="Top" Width="108" />
+        <Label Content="0%" Height="28" HorizontalAlignment="Left" Margin="550,253,0,0" Name="percentageLabel" VerticalAlignment="Top" Width="116" />
+        <Label Height="28" HorizontalAlignment="Left" Margin="122,213,0,0" Name="errorText" VerticalAlignment="Top" Width="405" FontSize="11" FontWeight="Bold" Foreground="#FFD82121" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="122,132,0,0" Name="maxSizeTextBox" VerticalAlignment="Top" Width="143" ToolTip="Keep cloning until the sum of the file sizes of all clones reaches this value." MouseEnter="maxSizeEntered" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="271,132,0,0" Name="maxSizeComboBox" VerticalAlignment="Top" Width="49">
+            <ComboBoxItem Content="KB" IsSelected="True" />
+            <ComboBoxItem Content="MB" />
+            <ComboBoxItem Content="GB" />
+        </ComboBox>
+        <Label Content="Max Size:" Height="23" HorizontalAlignment="Left" Margin="12,132,0,0" Name="label9" VerticalAlignment="Top" Width="104" FontSize="11" />
+        <CheckBox Content="Copy Until Max Size Reached" Height="23" HorizontalAlignment="Left" Margin="343,98,0,0" Name="copyCheckBox" VerticalAlignment="Top" Width="201" VerticalContentAlignment="Top" Checked="copyChecked" Unchecked="copyUnchecked" ToolTip="Keep cloning until the max size is reached" />
+        <Label Height="28" HorizontalAlignment="Left" Margin="122,318,0,0" Name="statusMessage" VerticalAlignment="Top" Width="422" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+        <CheckBox Content="Inifinity" Height="16" HorizontalAlignment="Left" Margin="343,132,0,0" Name="infinityCheckBox" VerticalAlignment="Top" Width="201" ToolTip="Keep cloning until the value specified under &quot;iterations&quot; is reached" Checked="infinityChecked" Unchecked="infinityUnchecked" />
+        <Label Content="Songs per Album:" Height="28" HorizontalAlignment="Left" Margin="12,169,0,0" Name="label5" VerticalAlignment="Top" Width="104" FontSize="11" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="122,169,0,0" Name="songsPerAlbumTextBox" VerticalAlignment="Top" Width="35" MaxLength="2" />
+        <CheckBox Content="Random" Height="16" HorizontalAlignment="Left" Margin="177,172,0,0" Name="randomCheckBox" VerticalAlignment="Top" Checked="randomChecked" Unchecked="randomUnchecked" ToolTip="Random number of songs per album" />
+        <Label Content="Average Songs per Album:" Height="28" HorizontalAlignment="Left" Margin="251,169,0,0" Name="avgSongsPerAlbumLabel" VerticalAlignment="Top" Width="141" FontSize="11" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="398,169,0,0" Name="avgSongsPerAlbumTextBox" VerticalAlignment="Top" Width="39" MaxLength="2" IsEnabled="False" ToolTip="Must be between 1 and 10, inclusive" />
+        <Label Content="(1-10)" Height="28" HorizontalAlignment="Left" Margin="443,168,0,0" Name="label7" VerticalAlignment="Top" Width="40" FontSize="11" />
+        <Button Content="Stop" Height="23" HorizontalAlignment="Left" Margin="550,139,0,0" Name="stopButton" VerticalAlignment="Top" Width="116" Click="stopClicked" />
+    </Grid>
+</Window>
